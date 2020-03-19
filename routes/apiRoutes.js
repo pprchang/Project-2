@@ -8,10 +8,12 @@ const apiLog = require("../public/js/searchLog.js");
 
 module.exports = function(app) {
 
+    // 'Get' log information (data)
     app.get("/api/search_log", function(req, res) {
         return res.json(apiLog);
     });
 
+    // 'Post' newSearch to log (data)
     app.post("/api/search_log", function(req, res) {
 
         // object construction will have to be configured on html script or separate JS file
@@ -19,7 +21,7 @@ module.exports = function(app) {
     
         console.log("Posting to api: " + JSON.stringify(newSearch));
 
-        res.json(/*whats being returned?*/)
+        res.json(newSearch)
 
         //When all is said and done push newSearch object to apiLog (log) array to log searches
         apiLog.push(newSearch);

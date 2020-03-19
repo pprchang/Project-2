@@ -6,8 +6,9 @@ $(document).ready(function() {
   //===========================================================
   // Import API key
   //===========================================================
-  let keyInfo = require("public\js\keys.js");
+  let keyInfo = require("public/js/keys.js");
   let apiKey = keyInfo.key
+  
 
 
   //============================================================
@@ -22,6 +23,13 @@ $(document).ready(function() {
 
     // Call function 'youtubeGO' and pass in 'searchTerm'
     youtubeGO(searchTerm);
+
+    // Post newSearch to 
+    $.post("/api/search_log", newSearch).then(function(data) {
+      // log the returned data
+      console.log(data);
+
+    });
       
   }); // END OF 'submit' button click event
 
@@ -54,5 +62,10 @@ $(document).ready(function() {
       }) // END OF 'AJAX' method / promise
 
   }; // END OF 'youtubeGO' function
+
+
+  //==========================================================
+  // Insert add. functions and event listeners below ~~~~~
+  //==========================================================
   
 }); // END OF '$(document).ready' function
