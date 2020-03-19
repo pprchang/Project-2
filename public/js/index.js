@@ -1,99 +1,58 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function() {
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+  // Verify the JS file is connected to HTML via inspect
+  console.log("connected");
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+  //===========================================================
+  // Import API key
+  //===========================================================
+  let keyInfo = require("public\js\keys.js");
+  let apiKey = keyInfo.key
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+  //============================================================
+  // Submit button (for youtube search bar)
+  //============================================================
 
-      $li.append($button);
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
 
-      return $li;
-    });
+    // Assign 'searchTerm' the value of the search bar input
+    let searchTerm = $('#search').val();
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+    // Call function 'youtubeGO' and pass in 'searchTerm'
+    youtubeGO(searchTerm);
+      
+  }); // END OF 'submit' button click event
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+  //==============================================================
+  // Define-Function "youtubeGO" (to use ajax to find video)
+  //==============================================================
+  
+  function youtubeGO(searchTerm) {
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+      // Redefine the 'searchTerm' argument passed in from callback as 'newSearch'
+      let newSearch = searchTerm;
+      // Youtube API search query (snippet, max results, order, searchterm [ q = newSearch ], & API KEY [ try to hide key ] )
+      let queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&order=relevance&q=" + newSearch + "&key=" + apiKey + "";
+  
+      // AJAX call
+      $.ajax({
+          url: queryURL,
+          method: 'GET'
+      }).then(function(response) {
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+          // Log response in case of need to div into response object
+          console.log(response);
+          // First video in response array
+          let video1 = response.items[0].id.videoId;
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+          // Assign video to <iframe id="player"> (ex of iframe: '<iframe id="player" type="text/html" width="640" height="390" src="" frameborder="0" allow="encrypted-media"></iframe> )
+          $('#player').attr("src", "https://www.youtube.com/embed/" + video1 +"?enablejsapi=1");
+  
+  
+      }) // END OF 'AJAX' method / promise
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  }; // END OF 'youtubeGO' function
+  
+}); // END OF '$(document).ready' function

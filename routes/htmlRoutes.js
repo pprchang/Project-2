@@ -1,27 +1,47 @@
-var db = require("../models");
+//===================================================================================
+// Dependencies
+//===================================================================================
+const path = require("path");
+
+//===================================================================================
+// HTML Routes (as an exported module)
+//===================================================================================
 
 module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
+    // NEED TO UPDATE WITH FILE NAME AND URL PATH NAME (ALL OF HUES HTML FILES)
+    // home
+    app.get("/", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "home.html"));
     });
-  });
+    // page 1
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 2
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 3
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 4
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 5
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 6
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
+    // page 7
+    app.get("/survey", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "survey.html"));
+    });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+
 };

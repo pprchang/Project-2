@@ -1,24 +1,29 @@
-var db = require("../models");
+// Make sure to install all appropriate packages 
+
+const apiLog = require("../public/js/searchLog.js");
+
+//===================================================================================
+// API Routes (as an exported module)
+//===================================================================================
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+    app.get("/api/search_log", function(req, res) {
+        return res.json(apiLog);
     });
-  });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
+    app.post("/api/search_log", function(req, res) {
+
+        // object construction will have to be configured on html script or separate JS file
+        let newSearch = req.body;
+    
+        console.log("Posting to api: " + JSON.stringify(newSearch));
+
+        res.json(/*whats being returned?*/)
+
+        //When all is said and done push newSearch object to apiLog (log) array to log searches
+        apiLog.push(newSearch);
+        
+    }); // END OF 'post' function.
+
+}; // END OF 'module'.
