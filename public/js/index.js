@@ -8,9 +8,8 @@ $(document).ready(function() {
   //===========================================================
   let keyInfo = require("public/js/keys.js");
   let apiKey = keyInfo.key
+  require("dotenv").config();
   
-
-
   //============================================================
   // Submit button (for youtube search bar)
   //============================================================
