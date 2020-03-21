@@ -1,27 +1,63 @@
-var db = require("../models");
+//===================================================================================
+// Dependencies.
+//===================================================================================
+
+const path = require("path");
+
+//===================================================================================
+// HTML Routes (as an exported module).
+//===================================================================================
 
 module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
+    // home (home.html).
+    app.get("/", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "home.html"));
     });
-  });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+    // Search page (search.html).
+    app.get("/search", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "search.html"));
+    });
+
+    // Car won't start page (carWontStart.html).
+    app.get("/car_wont_start", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "carWontStart.html"));
+    });
+
+    // Brake Noise page (brakeNoise.html).
+    app.get("/=brake_noise", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "brakeNoise.html"));
+    });
+
+    // Change light bulb page (changeLight.html).
+    app.get("/change_light", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "changeLight.html"));
+    });
+
+    // Change Oil page (changeOil.html).
+    app.get("/change_oil", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "changeOil.html"));
+    });
+
+    // Change Tire page (changeTire.html).
+    app.get("/change_tire", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "changeTire.html"));
+    });
+
+    // Contact page (contact.html).
+    app.get("/contact", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "contactUs.html"));
+    });
+
+    // Warning Lights page (engineWarning.html).
+    app.get("/warning_lights", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "engineWarning.html"));
+    });
+
+    // Jump-start page (jumpStart.html).
+    app.get("/jump_start", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public", "jumpStart.html"));
+    });
+
 };

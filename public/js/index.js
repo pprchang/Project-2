@@ -1,99 +1,45 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function() {
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+  // Verify the JS file is connected to HTML via inspect
+  console.log("connected");
+
+  //============================================================
+  // Submit button (for youtube search bar).
+  //============================================================
+
+  $("#searchButton").on("click", function(event) {
+    event.preventDefault();
+    //============================================================
+    // Assign 'searchTerm' the value of the search bar input.
+    //============================================================
+
+    let searchTerm = $('#searchTerm').val().trim();
+    
+    //============================================================
+    // Post newSearch to path (middleware).
+    //============================================================
+
+    $.post("/api/search_log", {searchTerm}).then(function(data) {
+
+      // log the returned data
+      console.log(data);
+
+      //=========================================================
+      // Assign video "src" attribute to <iframe id="player1-6">.
+      //=========================================================
+      
+      $('#iFrame1').attr("src", "https://www.youtube.com/embed/" + data[0] +"?enablejsapi=1");
+      $('#iFrame2').attr("src", "https://www.youtube.com/embed/" + data[1] +"?enablejsapi=1");
+      $('#iFrame3').attr("src", "https://www.youtube.com/embed/" + data[2] +"?enablejsapi=1");
+      $('#iFrame4').attr("src", "https://www.youtube.com/embed/" + data[3] +"?enablejsapi=1");
+      $('#iFrame5').attr("src", "https://www.youtube.com/embed/" + data[4] +"?enablejsapi=1");
+      $('#iFrame6').attr("src", "https://www.youtube.com/embed/" + data[5] +"?enablejsapi=1");
     });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+      
+  }); // END OF 'submit' button click event
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  //==========================================================
+  // Insert add. functions and event listeners below VVV.
+  //==========================================================
+  
+}); // END OF '$(document).ready' function
