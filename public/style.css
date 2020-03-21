@@ -8,7 +8,7 @@
 }
 
 .issue:hover {
-  color: red;
+  color: greenyellow;
 }
 
 a:hover {
@@ -25,18 +25,3 @@ a:hover {
   width: 100%;
   height: 100%;
 }
-
-/*-----display page---------- */
-/* div {
-  height: 50px;
-  background: green;
-  color: white;
-}
-#h {
-  height: 0;
-  transition: height 1s linear;
-  background: blue;
-}
-#h.open {
-  height: 50px;
-} */
