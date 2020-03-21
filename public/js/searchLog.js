@@ -1,4 +1,7 @@
-// Empty array used to hold search terms
-let log = [];
+//==================================================
+// Empty array used to hold search terms.
+//==================================================
 
-module.export = log;
+let log = ["BELOW IS A LOG OF ALL SEARCHES MADE: "];
+
+module.exports = log;
