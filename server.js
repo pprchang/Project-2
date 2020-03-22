@@ -2,7 +2,7 @@
 // Dependencies.
 //====================================================================
 
-const express = require("express")
+const express = require('express');
 
 //=====================================================================
 // Set up express.
@@ -21,14 +21,13 @@ app.use(express.json());
 //=====================================================================
 
 // Routing should be ok if we are using similar file structure (similar to FF HW)
-require("./routes/apiRoutes.js")(app)
-require("./routes/htmlRoutes.js")(app)
-
+require('./routes/apiRoutes.js')(app);
+require('./routes/htmlRoutes.js')(app);
 
 //=====================================================================
 //Starts the server to begin listening.
 //=====================================================================
 
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+  console.log('App listening on PORT ' + PORT);
 });

@@ -1,0 +1,57 @@
+@import '../../node_modules/motion-ui/src/motion-ui.scss';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+* {
+  box-sizing: border-box;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 50%;
+}
+
+.issue:hover {
+  color: greenyellow;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#image1 {
+  height: 100px;
+  width: 100px;
+  float: left;
+}
+
+.dropDown {
+  width: 100%;
+  height: 100%;
+}
+
+#display-1,
+#nav1 {
+  @include mui-animation(fade);
+  animation-duration: 10s;
+}
+
+#maintitle {
+  @include mui-animation(zoom(0, 1));
+  animation-duration: 4s;
+}
+
+a:hover {
+  @include mui-animation(wiggle(25deg));
+  animation-duration: 2s;
+}
+
+body {
+  background: rgb(21, 21, 22);
+  background: linear-gradient(
+    180deg,
+    rgba(21, 21, 22, 1) 18%,
+    rgba(108, 108, 115, 1) 36%,
+    rgba(103, 107, 108, 1) 52%
+  );
+}
