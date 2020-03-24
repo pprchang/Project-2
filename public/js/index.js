@@ -15,9 +15,12 @@ $(document).ready(function() {
     let searchTerm;
     
     if ($('#searchTerm').val().trim() === "") {
-      alert("You must enter a search term!")
+      $('#searchTerm').addClass('is-invalid');
     } else {
       searchTerm = $('#searchTerm').val().trim();
+      $('#searchTerm').removeClass('is-invalid');
+      $('#searchTerm').addClass('is-valid');
+
 
       //============================================================
       // Post newSearch to path (middleware).
