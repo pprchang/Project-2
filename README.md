@@ -1,5 +1,5 @@
 # Project-2: CarNostic
-CarNostic is a project base on the idea of providing a quick reference guide for common automotive issues.  CarNostic provides information on automative issuess such as warning lights, things to check if the vehicle won't start, etc.  In addition, it also provides instructions for common vehicle maintenance such as changing a flat tire, changing oil and jumping starting a car.   
+CarNostic is a project base on the idea of providing a quick reference guide for common automotive issues.  CarNostic provides information on automative issuess such as warning lights, things to check if the vehicle won't start, etc..  In addition, it also provides instructions for common vehicle maintenance such as changing a flat tire, changing oil, etc..   
 CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon (GordonConness).
 
 ### Link to Project-2 Live-pages ###
@@ -50,6 +50,5 @@ CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon
 
 - YouTube (https://developers.google.com/youtube/v3) which is used to allow users to search YouTube video for additional information or additional topic.
 
-#### Guidelines for Collaboration
-
-Any advice and comments for this project are appreciated. All pull requests will require approval. Again, this project was created for UWM Web dev. boot-camp as a learning experience for working in groups to create a collaborative project.
+## *Guidelines for Collaboration*
+Any advices and comments for this project are welcome and appreciated. However, when contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.  Thank you for your corporation.
