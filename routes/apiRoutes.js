@@ -6,6 +6,7 @@ let axios = require("axios");
 let searchLog = require("../public/js/searchLog.js");
 let db = require("../models");
 
+
 //===================================================================================
 // Import API key (stored in .env file for security)
 //===================================================================================
@@ -93,12 +94,12 @@ module.exports = function(app) {
 
                 res.json(false);
 
-            }); // END OF 'AJAX' method / promise
+            }); // END OF 'Axios' method / promise
         
             console.log(videoArray)
 
         //=================================================================
-        // Add search term to searchTerm table in database
+        // Add search term to "searchTerm" table in "CarNosticTracker_DB" database
         //=================================================================
 
         db.searchTerm.create({
@@ -107,6 +108,311 @@ module.exports = function(app) {
             console.table(result);
         });
         
-    }); // END OF 'post' function.
+    }); // END OF 'post/search_log' function.
+
+    //====================================================================
+    // "Search" Link Counter
+    //====================================================================
+    app.get("/api/data", function(req,res) {
+        return res.json(res);
+    });
+    
+    app.put("/api/data", function(req, res) {
+        let updateSearchCounter = req.body.searchLinkCounter;
+
+        console.log(updateSearchCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 7
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateSearchCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 7
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "Engine Warning Light" Link Counter
+    //====================================================================
+    app.get("/api/data2", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data2", function(req, res) {
+        let updateEngineWarningCounter = req.body.engineWarningCounter;
+
+        console.log(updateEngineWarningCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 1
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateEngineWarningCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 1
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "Brake Noise" Link Counter
+    //====================================================================
+    app.get("/api/data3", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data3", function(req, res) {
+        let updateBrakeNoiseCounter = req.body.brakeNoiseCounter;
+
+        console.log(updateBrakeNoiseCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 2
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateBrakeNoiseCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 2
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "Car Won't Start" Link Counter
+    //====================================================================
+    app.get("/api/data4", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data4", function(req, res) {
+        let updateCarWontStartCounter = req.body.carWontStartCounter;
+
+        console.log(updateCarWontStartCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 3
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateCarWontStartCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 3
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "How to Change Tire" Link Counter
+    //====================================================================
+    app.get("/api/data5", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data5", function(req, res) {
+        let updateTireCounter = req.body.tireCounter;
+
+        console.log(updateTireCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 4
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateTireCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 4
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "How to Change Oil" Link Counter
+    //====================================================================
+    app.get("/api/data6", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data6", function(req, res) {
+        let updateOilCounter = req.body.oilCounter;
+        
+        console.log(updateOilCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 5
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter;
+                // Log to verify its a number 
+                console.log(previousVal)
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateOilCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 5
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            });
+    });
+
+    //====================================================================
+    // "How to Jump-Start a Car" Link Counter
+    //====================================================================
+    app.get("/api/data7", function(req,res) {
+        return res.json(res);
+    });
+
+    app.put("/api/data7", function(req, res) {
+        let updateJumpCounter = req.body.jumpCounter;
+
+        console.log(updateJumpCounter);
+
+        db.click.findOne(
+            {
+                where: {
+                    id: 6
+                }
+            }).then(function(result) {
+                console.log(result);
+                
+                // Grab old val and assign to variable
+                let previousVal = result.dataValues.click_counter; 
+                // Log to verify its a number 
+                console.log(previousVal);
+                // Calculate new value
+                let currentVal = previousVal + parseInt(updateJumpCounter);
+                // Log to verify its a number 
+                console.log(currentVal);
+
+                db.click.update(
+                    {
+                        click_counter: currentVal
+                    },
+                    {
+                        where: {
+                            id: 6
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    });
+            })
+
+    });
+
+
+
 
 }; // END OF 'module'.
