@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "username": "bauter",
+    "password": "raspberry3.14",
+    "database": "CarNosticTracker_db",
     "host": "localhost",
     "dialect": "mysql"
   },

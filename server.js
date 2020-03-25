@@ -2,7 +2,7 @@
 // Dependencies.
 //====================================================================
 
-const express = require('express');
+const express = require("express")
 
 //=====================================================================
 // Set up express.
@@ -16,18 +16,25 @@ app.use(express.static('./public/'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Requiring our models for syncing
+var db = require("./models");
+
 //=====================================================================
 // Routes.
 //=====================================================================
 
 // Routing should be ok if we are using similar file structure (similar to FF HW)
-require('./routes/apiRoutes.js')(app);
-require('./routes/htmlRoutes.js')(app);
+require("./routes/apiRoutes.js")(app)
+require("./routes/htmlRoutes.js")(app)
+
 
 //=====================================================================
 //Starts the server to begin listening.
 //=====================================================================
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });
 
-app.listen(PORT, function() {
-  console.log('App listening on PORT ' + PORT);
 });
+
