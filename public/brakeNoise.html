@@ -16,7 +16,14 @@
       crossorigin="anonymous"
     />
 
+    <!--SASS-->
     <link rel="stylesheet" href="./scss/style.css" />
+
+    <!--JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Script tag for index.js-->
+    <script src="js/index.js"></script>
 
     <title>Brake Noise</title>
   </head>
@@ -26,7 +33,7 @@
       <div
         class="container text-center border border-dark rounded-pill bg-dark"
       >
-        <h1 class="display-1 text-white font-weight-bold">CarNostic</h1>
+        <h1 class="display-3 text-white font-weight-bold">CarNostic</h1>
         <p class="lead font-weight-bold text-white">
           Where Answers To Your Car Problem May Be A Click Away
         </p>
@@ -38,7 +45,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg sticky-top navbar-light">
         <button
-          class="navbar-toggler"
+          class="navbar-toggler  bg-success"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -56,7 +63,10 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white font-weight-bold" href="search.html"
+              <a
+                id="searchLink"
+                class="nav-link text-white font-weight-bold"
+                href="search.html"
                 ><h5 class="issue mb-0">Search |</h5></a
               >
             </li>
@@ -175,22 +185,21 @@
 
         <!--Card Body 1-->
 
-        <div class="card-body">
-          <div class="card-group">
-            <div>
-              <!--IFRAME START-->
-              <div class="container ml-5">
-                <p>
-                  <iframe
-                    width="945"
-                    height="394"
-                    src="https://www.youtube.com/embed/fjSAkC7te8g"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </p>
-              </div>
+        <div class="card-body p-0 mt-2 ">
+          <div class="card-group ">
+            <!--IFRAME START-->
+            <div class="container text-center">
+              <p>
+                <iframe
+                  width="355"
+                  height="300"
+                  src="https://www.youtube.com/embed/fjSAkC7te8g"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </p>
+
               <!--IFRAME END-->
             </div>
 
@@ -218,12 +227,8 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Popper.js, then Bootstrap JS -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

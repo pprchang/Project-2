@@ -42,7 +42,7 @@ a:hover {
 }
 
 a:hover {
-  @include mui-animation(wiggle(25deg));
+  @include mui-animation(wiggle(1deg));
   animation-duration: 2s;
 }
 

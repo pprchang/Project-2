@@ -16,13 +16,16 @@
       crossorigin="anonymous"
     />
 
+      <!--SASS-->
+      <link rel="stylesheet" href="./scss/style.css" />
+
     <!--JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="./scss/style.css" />
-
+  
     <!--Script tag for index.js-->
     <script src="js/index.js"></script>
+
 
     <title>Search</title>
   </head>
@@ -32,7 +35,7 @@
       <div
         class="container text-center border border-dark rounded-pill bg-dark"
       >
-        <h1 class="display-1 text-white font-weight-bold">CarNostic</h1>
+        <h1 class="display-3 text-white font-weight-bold">CarNostic</h1>
         <p class="lead font-weight-bold text-white">
           Where Answers To Your Car Problem May Be A Click Away
         </p>
@@ -46,7 +49,7 @@
         class="navbar navbar-expand-lg sticky-top navbar-light"
       >
         <button
-          class="navbar-toggler"
+          class="navbar-toggler  bg-success"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -64,7 +67,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white font-weight-bold" href="search.html"
+              <a id="searchLink" class="nav-link text-white font-weight-bold" href="search.html"
                 ><h5 class="issue mb-0">Search |</h5></a
               >
             </li>
@@ -88,7 +91,7 @@
         <input
           id="searchTerm"
           class="form-control mr-sm-2"
-          style="width: 40%;"
+          style="width: 60%;"
           type="search"
           placeholder="Search"
           aria-label="Search"
@@ -97,7 +100,7 @@
 
         <button
           id="searchButton"
-          class="btn btn-success my-2 my-sm-0"
+          class="btn btn-success my-2 my-sm-0 ml-2"
           type="submit"
         >
           Search
@@ -123,13 +126,13 @@
 
       
         <div class="card-body">
-          <div class="container">
+          <div class="container text-center">
             <div class="row">
               <!--iFrame 1-->
-              <div class="col-sm ml-4">
+              <div class="col-sm p-0">
                 <iframe id="iFrame1" class="rounded"
-                width="460"
-                height="394"
+                width="340"
+                height="300"
                 src=""
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -137,11 +140,12 @@
               ></iframe>
               </div>
               <!--iFrame 2-->
-              <div class="col-sm">
+              <div class="col-sm p-0 ">
                 <iframe
                 id="iFrame2"
-                width="460"
-                height="394"
+                class="rounded"
+                width="340"
+                height="300"
                 src=""
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -156,15 +160,15 @@
 
               <!--Row 2-->
 
-              <div class="container mt-3">
+              <div class="container text-center">
                 <div class="row">
                   <!--iFrame 3-->
-                  <div class="col-sm ml-4">
+                  <div class="col-sm p-0">
                     <iframe
                     id="iFrame3"
                     class="rounded"
-                    width="460"
-                    height="394"
+                    width="340"
+                    height="300"
                     src=""
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -173,12 +177,12 @@
                     
                   </div>
                   <!--iFrame 4-->
-                  <div class="col-sm">
+                  <div class="col-sm p-0">
                     <iframe
                     id="iFrame4"
                     class="rounded"
-                    width="460"
-                    height="394"
+                    width="340"
+                    height="300"
                     src=""
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -192,15 +196,15 @@
 
               
                  <!--Row 3-->
-                 <div class="container mt-3">
+                 <div class="container text-center">
                   <div class="row">
                     <!--iFrame5-->
-                    <div class="col-sm ml-4">
+                    <div class="col-sm p-0">
                       <iframe
                       id="iFrame5"
                       class="rounded"
-                      width="460"
-                      height="394"
+                      width="340"
+                      height="300"
                       src=""
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -209,12 +213,12 @@
                       
                     </div>
                     <!--iFrame6-->
-                    <div class="col-sm">
+                    <div class="col-sm p-0">
                       <iframe
                       id="iFrame6"
                       class="rounded"
-                      width="460"
-                      height="394"
+                      width="340"
+                      height="300"
                       src=""
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -254,7 +258,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Popper.js, then Bootstrap JS -->
    
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
