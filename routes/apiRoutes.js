@@ -4,6 +4,7 @@
 
 let axios = require("axios");
 let searchLog = require("../public/js/searchLog.js");
+let db = require("../models");
 
 //===================================================================================
 // Import API key (stored in .env file for security)
@@ -95,6 +96,16 @@ module.exports = function(app) {
             }); // END OF 'AJAX' method / promise
         
             console.log(videoArray)
+
+        //=================================================================
+        // Add search term to searchTerm table in database
+        //=================================================================
+
+        db.searchTerm.create({
+            search: newSearch
+        }).then(function(result) {
+            console.table(result);
+        });
         
     }); // END OF 'post' function.
 
