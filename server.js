@@ -9,7 +9,7 @@ const express = require('express');
 //=====================================================================
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8000;
 
 // may need to modify line 15 file path ('app/public')
 app.use(express.static('./public/'));
