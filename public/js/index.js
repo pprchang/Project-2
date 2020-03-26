@@ -24,7 +24,14 @@ $(document).ready(function() {
     // Assign 'searchTerm' the value of the search bar input.
     //============================================================
 
-    let searchTerm = $('#searchTerm').val().trim();
+    let searchTerm;
+    
+    if($('#searchTerm').val().trim() === "" ) {
+      $('searchTerm').addClass('is-invalid');
+    } else {
+      searchTerm = $('#searchTerm').val().trim();
+      $('#searchTerm').removeClass('is-invalid');
+    };
     
     //============================================================
     // Post newSearch to path (middleware).
