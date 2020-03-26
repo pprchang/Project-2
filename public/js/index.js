@@ -27,33 +27,35 @@ $(document).ready(function() {
     let searchTerm;
     
     if($('#searchTerm').val().trim() === "" ) {
-      $('searchTerm').addClass('is-invalid');
+      $('#searchTerm').addClass('is-invalid');
     } else {
       searchTerm = $('#searchTerm').val().trim();
       $('#searchTerm').removeClass('is-invalid');
-    };
     
-    //============================================================
-    // Post newSearch to path (middleware).
-    //============================================================
+    
+      //============================================================
+      // Post newSearch to path (middleware).
+      //============================================================
 
-    $.post("/api/search_log", {searchTerm}).then(function(data) {
+      $.post("/api/search_log", {searchTerm}).then(function(data) {
 
-      // log the returned data
-      console.log(data);
+        // log the returned data
+        console.log(data);
 
-      //=========================================================
-      // Assign video "src" attribute to <iframe id="player1-6">.
-      //=========================================================
+        //=========================================================
+        // Assign video "src" attribute to <iframe id="player1-6">.
+        //=========================================================
       
-      $('#iFrame1').attr("src", "https://www.youtube.com/embed/" + data[0] +"?enablejsapi=1");
-      $('#iFrame2').attr("src", "https://www.youtube.com/embed/" + data[1] +"?enablejsapi=1");
-      $('#iFrame3').attr("src", "https://www.youtube.com/embed/" + data[2] +"?enablejsapi=1");
-      $('#iFrame4').attr("src", "https://www.youtube.com/embed/" + data[3] +"?enablejsapi=1");
-      $('#iFrame5').attr("src", "https://www.youtube.com/embed/" + data[4] +"?enablejsapi=1");
-      $('#iFrame6').attr("src", "https://www.youtube.com/embed/" + data[5] +"?enablejsapi=1");
-    });
-      
+        $('#iFrame1').attr("src", "https://www.youtube.com/embed/" + data[0] +"?enablejsapi=1");
+        $('#iFrame2').attr("src", "https://www.youtube.com/embed/" + data[1] +"?enablejsapi=1");
+        $('#iFrame3').attr("src", "https://www.youtube.com/embed/" + data[2] +"?enablejsapi=1");
+        $('#iFrame4').attr("src", "https://www.youtube.com/embed/" + data[3] +"?enablejsapi=1");
+        $('#iFrame5').attr("src", "https://www.youtube.com/embed/" + data[4] +"?enablejsapi=1");
+        $('#iFrame6').attr("src", "https://www.youtube.com/embed/" + data[5] +"?enablejsapi=1");
+      });
+   
+    };
+
   }); // END OF 'submit' button click event
 
   //==========================================================
