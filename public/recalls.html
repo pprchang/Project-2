@@ -94,61 +94,76 @@
     <div class="card-header bg-mute text-dark text-center">
       <h2 class="div-title font-weight-bold">Recall Information</h2>
     </div>
+        <!--Card Body 1-->
 
-    <!--Card Body 1-->
+        <div class="card-body">
+          <div class="card-group">
+            <!--Form Begin-->
 
-    <div class="card-body">
-      <div class="card-group">
-        <!--Form Begin-->
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationServer01"
-                ><h5 class="font-weight-bold">Make</h5></label
-              >
-              <input
-                id="firstName"
-                type="text"
-                name="firstName"
-                class="form-control"
-                id="validationServer01"
-                placeholder="Model"
-                value=""
-                required
-              />
-            </div>
+            <form action="https://formspree.io/xyypnbwa" method="POST">
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationServer01"
+                    ><h5 class="font-weight-bold">Make</h5></label
+                  >
+                  <input
+                    id="make"
+                    type="text"
+                    name="firstName"
+                    class="form-control"
+                    id="validationServer01"
+                    placeholder="Make"
+                    value=""
+                    required
+                  />
+                </div>
+                <div class="col-md-4 mb-3 ml-0">
+                  <label for="validationServer02"
+                    ><h5 class="font-weight-bold">Model</h5></label
+                  >
+                  <input
+                    id="model"
+                    type="text"
+                    name="lastName"
+                    class="form-control"
+                    id="validationServer02"
+                    placeholder="Model"
+                    value=""
+                    required
+                  />
+                  <!-- <div class="valid-feedback">
+                    Looks good!
+                  </div> -->
+                </div>
 
-            <div class="col-md-4 mb-3 ml-0">
-              <label for="validationServer02"
-                ><h5 class="font-weight-bold">Model</h5></label
-              >
-              <input
-                id="lastName"
-                type="text"
-                name="lastName"
-                class="form-control"
-                id="validationServer02"
-                placeholder="Model"
-                value=""
-                required
-              />
-              <!-- <div class="valid-feedback">
-                Looks good!
-              </div> -->
-            </div>
+                <!--empty div for spacing-->
+                <div class="col-md-12 mb-3"></div>
 
-            <!--empty div for spacing-->
-            <div class="col-md-12 mb-3"></div>
+                <!--Message Box-->
 
-            <!--Message Box-->
-          
+                <label for="validationTextarea"
+                  ><h5 class="font-weight-bold">Year</h5></label
+                >
+                <textarea
+                  id="year"
+                  name="message"
+                  style="height: 200px;"
+                  class="form-control"
+                  id="validationTextarea"
+                  placeholder="Year"
+                  required
+                ></textarea>
+              
 
-          <!--Submit Button-->
-          <div class="col-md-12 mb-3 mt-4">
-            <button id="formSubmit" class="btn btn-primary font-weight-bold" type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
+              <!--Submit Button-->
+              <div class="col-md-12 mb-3 mt-4">
+                <button id="formSubmit" class="btn btn-primary font-weight-bold" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+
+
 
         <!--Card Group-->
       </div>
