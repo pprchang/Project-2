@@ -1,10 +1,10 @@
 # Project-2: CarNostic
-CarNostic is a project base on the idea of providing a quick reference guide for common automotive issues.  CarNostic provides information on automative issuess such as warning lights, things to check if the vehicle won't start, etc..  In addition, it also provides instructions for common vehicle maintenance such as changing a flat tire, changing oil, etc..   
+CarNostic is a project base on the idea of providing a quick reference guide for common automotive issues.  CarNostic provides information on automotive issues such as warning lights, things to check if the vehicle won't start, etc..  In addition, it also provides instructions for common vehicle maintenance such as changing a flat tire, changing oil, etc..   
 CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon (GordonConness).
 
 ### Link to Project-2 Live-pages ###
 
-#### CarNostic ()
+#### CarNostic (https://carnostic-project-2.herokuapp.com/home.html)
 
 ## *Project Requirements*
 ```
@@ -15,7 +15,7 @@ CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon
 - Must utilize at least one new library, package, or technology
 - Must have a polished front end/Ui
 - Must have a folder structure that meets the MVC paradigm
-- Must meet good-qaulity coding standards
+- Must meet good-quality coding standards
 - Must protect API keys in Node with environment variables
 
 ```
