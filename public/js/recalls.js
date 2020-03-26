@@ -29,10 +29,16 @@ $("#recallSubmit").on('click', function() {
     if ($('#model').val() === "" && $('#make').val() === "" && $("#year").val() === "") {
         console.log ("Must be filled out before moving on!")
     } else {
-        
 
-    }
+        $.ajax({
+            url: "http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+        });
+
+    };
 
 
-})
+});
 });
