@@ -100,59 +100,33 @@
           <div class="card-group">
             <!--Form Begin-->
 
-            <form action="https://formspree.io/xyypnbwa" method="POST">
-              <div class="form-row">
-                <div class="col-md-4 mb-3">
-                  <label for="validationServer01"
-                    ><h5 class="font-weight-bold">Make</h5></label
-                  >
-                  <input
-                    id="make"
-                    type="text"
-                    name="firstName"
-                    class="form-control"
-                    id="validationServer01"
-                    placeholder="Make"
-                    value=""
-                    required
-                  />
-                </div>
-                <div class="col-md-4 mb-3 ml-0">
-                  <label for="validationServer02"
-                    ><h5 class="font-weight-bold">Model</h5></label
-                  >
-                  <input
-                    id="model"
-                    type="text"
-                    name="lastName"
-                    class="form-control"
-                    id="validationServer02"
-                    placeholder="Model"
-                    value=""
-                    required
-                  />
-                  <!-- <div class="valid-feedback">
-                    Looks good!
-                  </div> -->
-                </div>
+            <form>
+            <input type="text" 
+            id="make" 
+            class="form-control"
+            placeholder="Make"
+            required>
+            </input>
+            
+            <input type="text"
+            id="model"
+            class="form-control"
+            placeholder="Model"
+            required> </input>
 
-                <!--empty div for spacing-->
-                <div class="col-md-12 mb-3"></div>
+            <input type="text"
+            id="year"
+            class="form-control"
+            placeholder="Year"
+            required> </input>
+            
+            
+          
+          </form>
 
-                <!--Message Box-->
+            
 
-                <label for="validationTextarea"
-                  ><h5 class="font-weight-bold">Year</h5></label
-                >
-                <textarea
-                  id="year"
-                  name="message"
-                  style="height: 200px;"
-                  class="form-control"
-                  id="validationTextarea"
-                  placeholder="Year"
-                  required
-                ></textarea>
+            
               
 
               <!--Submit Button-->
