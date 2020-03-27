@@ -68,7 +68,11 @@ $("#recallSubmit").on('click', function(event) {
         }).then(function (data) {
             console.log(data);
             $("#date").text();
-            $("#campaingNumber").text();
+            $("#campaignNumber").text();
+            $('#recallNumber').text();
+            $('#description').text();
+            $('#correctionAction').text();
+            $('#consequence').text();
         })
 
 
