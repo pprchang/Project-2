@@ -422,6 +422,7 @@ module.exports = function(app) {
          let make=apiInfo[0]
          let model=apiInfo[1]
          let year=apiInfo[2]
+         let rd;
         console.log(req.body.apiArray);
         console.log("got this far");
         console.log(make, model, year)
@@ -436,43 +437,18 @@ module.exports = function(app) {
             }
           };
 
-        
-          
-        //   let data = {
-        //     'HTTP_CONTENT_LANGUAGE': self.language
-        //   }
           
           axios.get(URL, config).then(function (response) {
             console.log(response.data);
+            rd = response.data;
+            res.json(response.data);
+            //res.json(rd);
         })
-        //res.json(data)
+        //console.log(rd);
+        //res.json(response);
+
         
     })
-        // axios({
-        //    url: "http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model + "",
-        //     headers: {
 
-        //     "content-type":"application/json",
-        //      "authorization":"ZDFjMzJkYzQtMGY4NC00ZDk3LTg2YWUtZWZhOTA3MDAzNjRk	",
-        //       "partner-token":"81743de60d6f4f9595099de98bf3907e",
-        //  },
-        //  method:'PUT',
-        //  dataType: 'json',
-        //  success: function(data){
-        //      console.log('success: ' +data);
-        //  }
-    
-        //  }).then(function (data) {
-        //     console.log(data);
-        // })
-
-    //axios.get("http://api2.carmd.com/v2.0/decode")
-    // })
-    // carKeys.get("http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model + "").then(function(response) {             
-    //    console.log(response.data);
-
-        // })
-        //res.json(apiInfo);
-     //})
 };  
 //END OF 'module'.

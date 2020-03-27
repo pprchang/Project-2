@@ -76,12 +76,12 @@
             <li class="nav-item">
               <a
                 class="nav-link text-white font-weight-bold"
-                href="contactUs.html"><h5 class="issue mb-0">Contact Us |</h5></a>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white font-weight-bold"
-                  href="recalls.html"><h5 class="issue mb-0">Vehicle Recalls</h5></a>
-            </li>
+                href="recalls.html"><h5 class="issue mb-0">Vehicle Recalls |</h5></a>
+          </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white font-weight-bold"
+                href="contactUs.html"><h5 class="issue mb-0">Contact Us </h5></a>
           </ul>
         </div>
       </nav>
@@ -102,6 +102,7 @@
             <!--Form Begin-->
             
             <form>
+            <div class="container"></div>
             <input
             type="text" 
             id="make" 
@@ -121,7 +122,7 @@
             value="">
           </input>
 
-          <br>
+            <br>
 
             <input type="text"
             id="year"
@@ -136,19 +137,30 @@
             <button id="recallSubmit"
             class="btn btn-primary font-weight-bold mb-2" 
             type="submit">Submit</button>
-         </form>
+          </div>
+          </form>
 
+         <br>
+
+        <div class="container mt-6">
          <div id="recallTitle">
+          <h5>Recall Date</h5>
           <p id="date"></p>
+          <h5>Campaign Number</5>
           <p id="campaignNumber"></p>
+          <h5>Recall Number</h5>
           <p id="recallNumber"></p>
          </div>
 
          <div id="recallBody">
+          <h5>Description</h5>
           <p id="description"></p>
+          <h5>Corrective Action</h5>
           <p id="correctionAction"></p>
+          <h5>Consequence</h5>
           <p id="consequence"></p>
          </div>
+        </div>
 
         <!--Card Group-->
       </div>

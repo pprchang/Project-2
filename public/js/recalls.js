@@ -1,7 +1,12 @@
 $(document).ready(function() {
+$("#recallTitle").hide();
+$("#recallBody").hide();
+
 
 $("#recallSubmit").on('click', function(event) {
     event.preventDefault();
+    $("#recallTitle").hide();
+    $("#recallBody").hide();
     let model;
     let make;
     let year;
@@ -33,32 +38,7 @@ $("#recallSubmit").on('click', function(event) {
     } else {
         console.log("We got this far");
         apiArray.push(make, model, year);
-        console.log(apiArray);
-        
-
-        
-        // $.ajax({
-        //     url: "http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model + "",
-        //     headers: {
-        //      "content-type":"application/json",
-        //      "authorization":"ZDFjMzJkYzQtMGY4NC00ZDk3LTg2YWUtZWZhOTA3MDAzNjRk	",
-        //      "partner-token":"81743de60d6f4f9595099de98bf3907e",
-        // },
-        // method:'PUT',
-        // dataType: 'json',
-        // success: function(data){
-        //     console.log('success: ' +data);
-        // }
-    
-        // }).then(function (data) {
-        //     console.log(data);
-        // })
-        
-        
-        
-        
-        
-        
+        console.log(apiArray);  
         
         $.ajax({
             method: 'POST',
@@ -67,12 +47,27 @@ $("#recallSubmit").on('click', function(event) {
     
         }).then(function (data) {
             console.log(data);
-            $("#date").text();
-            $("#campaignNumber").text();
-            $('#recallNumber').text();
-            $('#description').text();
-            $('#correctionAction').text();
-            $('#consequence').text();
+            let desc = data.data[0].desc;
+            if (data = []) {
+                alert("No Recall Information Avaliable")
+            } else {
+                let date = data.data[0].recall_date;
+                let campaignNumber = data.data[0].campaign_number;
+                let recallNumber = data.data[0].recall_number;
+                let correctionAction = data.data[0].corrective_action;
+                let consequence = data.data[0].consequence;
+                $("#date").text(date);
+                $("#campaignNumber").text(campaignNumber);
+                $('#recallNumber').text(recallNumber);
+                $('#description').text(desc);
+                $('#correctionAction').text(correctionAction);
+                $('#consequence').text(consequence);
+                $("#recallTitle").show();
+                $("#recallBody").show();
+    
+
+            }
+
         })
 
 
