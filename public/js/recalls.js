@@ -47,10 +47,11 @@ $("#recallSubmit").on('click', function(event) {
     
         }).then(function (data) {
             console.log(data);
-            let desc = data.data[0].desc;
+            
             if (data.data.length === 0) {
                 $("#recallFailed").show();
             } else {
+                let desc = data.data[0].desc;
                 let date = data.data[0].recall_date;
                 let campaignNumber = data.data[0].campaign_number;
                 let recallNumber = data.data[0].recall_number;
