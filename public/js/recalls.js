@@ -1,7 +1,7 @@
 $(document).ready(function() {
 $("#recallTitle").hide();
 $("#recallBody").hide();
-
+$("#recallFailed").hide();
 
 $("#recallSubmit").on('click', function(event) {
     event.preventDefault();
@@ -48,8 +48,8 @@ $("#recallSubmit").on('click', function(event) {
         }).then(function (data) {
             console.log(data);
             let desc = data.data[0].desc;
-            if (data = []) {
-                alert("No Recall Information Avaliable")
+            if (data.data.length === 0) {
+                $("#recallFailed").show();
             } else {
                 let date = data.data[0].recall_date;
                 let campaignNumber = data.data[0].campaign_number;
