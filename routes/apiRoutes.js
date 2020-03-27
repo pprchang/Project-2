@@ -13,7 +13,8 @@ let db = require("../models");
 
 require("dotenv").config();
 let keys = require("../keys.js");
-let apiKey = keys.keyInfo.key
+let apiKey = keys.keyInfo.key 
+
 
 //===================================================================================
 // API Routes (as an exported module)
@@ -412,7 +413,42 @@ module.exports = function(app) {
 
     });
 
+    app.get("/api/gordonapi", function(req,res) {
+        return res.json(res);
+    })
 
+    app.post("/api/gordonapi", function(req,res) { 
+        let apiInfo= req.body.apiArray;
+         let make=apiInfo[0]
+         let model=apiInfo[1]
+         let year=apiInfo[2]
+         let rd;
+        console.log(req.body.apiArray);
+        console.log("got this far");
+        console.log(make, model, year)
 
+        let URL= "http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model + ""
 
-}; // END OF 'module'.
+        let config = {
+            headers: {
+                "content-type":"application/json",
+                "authorization": process.env.AUTHORIZATION,
+                "partner-token": process.env.TOKEN
+            }
+          };
+
+          
+          axios.get(URL, config).then(function (response) {
+            console.log(response.data);
+            rd = response.data;
+            res.json(response.data);
+            //res.json(rd);
+        })
+        //console.log(rd);
+        //res.json(response);
+
+        
+    })
+
+};  
+//END OF 'module'.
