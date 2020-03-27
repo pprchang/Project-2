@@ -50,5 +50,7 @@ CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon
 
 - YouTube (https://developers.google.com/youtube/v3) which is used to allow users to search YouTube video for additional information or additional topic.
 
+- CarMD (http://dev-developer.carmd.com/v2.0/) which is used to search for specific vehicle recall information.
+
 ## *Guidelines for Collaboration*
 Any advices and comments for this project are welcome and appreciated. However, when contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owner of this repository before making a change.  Thank you for your corporation.
