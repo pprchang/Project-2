@@ -217,27 +217,23 @@ $(document).ready(function() {
     
   });
 
+  // Clear form values on 'contact' page
+  $("#formSubmit").on('click', function() {
+  
+    // define function to rest contact form values after submission.
+     function resetForm () {
 
+      $("#firstName").val("");
+      $('#lastName').val("");
+      $("#inputEmail4").val("");
+      $("#message").val("");
 
+     };
+     // run resetForm after 2 secs.
+     setInterval(resetForm, 2000);
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  });
 
 
   
