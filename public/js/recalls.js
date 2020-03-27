@@ -67,26 +67,13 @@ $("#recallSubmit").on('click', function(event) {
     
         }).then(function (data) {
             console.log(data);
+            $("#date").text();
+            $("#campaingNumber").text();
         })
 
 
-
-
-
-        //$.post("/api/gordonapi", {apiArray}).then(function(data) {
-           // console.log(data);
-
-        // $.ajax({
-        //     url: "http://api.carmd.com/v3.0/recall?year=" + year + "&make=" + make + "&model=" + model,
-        //     method: "GET"
-        // }).then(function(response) {
-        //     console.log(response);
-        // });
-
-       // });
-
-
     };
+
 
 });
 
