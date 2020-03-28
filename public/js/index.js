@@ -10,6 +10,7 @@ $(document).ready(function() {
   let tireCounter = 0;
   let oilCounter = 0;
   let jumpCounter = 0;
+  let interval;
 
   // Verify the JS file is connected to HTML via inspect
   console.log("connected");
@@ -217,20 +218,27 @@ $(document).ready(function() {
     
   });
 
-  // Clear form values on 'contact' page
+//====================================================================
+  // Clear form values on 'contactUs.html' page
+  //====================================================================
   $("#formSubmit").on('click', function() {
-  
-    // define function to rest contact form values after submission.
-     function resetForm () {
+    
+    // Define function to rest contact form values after submission and clear interval.
+    function resetForm () {
 
+      // Reset values
       $("#firstName").val("");
       $('#lastName').val("");
       $("#inputEmail4").val("");
       $("#message").val("");
 
-     };
-     // run resetForm after 2 secs.
-     setInterval(resetForm, 2000);
+      // Stop setInterval (interval)
+      clearInterval(interval);
+
+    };
+
+    // Start setInterval
+    interval = setInterval(resetForm, 2000);
     
 
   });
