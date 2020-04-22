@@ -6,6 +6,8 @@ CarNostic was in collaboration between Hue (pprchang), Bryan (Bauter) and Gordon
 
 #### CarNostic (https://carnostic-project-2.herokuapp.com/home.html)
 
+![CarNostic-app](CarNostic.gif)
+
 ## *Project Requirements*
 ```
 - Must use a Node and Express web server.
